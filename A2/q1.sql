@@ -26,6 +26,7 @@ SELECT DISTINCT cast(extract(year from datetime) as varchar(7)) ||
 cast(extract(month from datetime) as varchar(7)) as month, client_id
 FROM Rides ;
 
+-- LEFT JOIN here is used to preserve clients with no rides
 insert into q1
 SELECT Client.client_id,email,count(month)
 FROM Client LEFT JOIN UniqueMonths ON Client.client_id=UniqueMonths.client_id
