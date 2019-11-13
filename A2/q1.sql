@@ -28,5 +28,5 @@ FROM Rides ;
 
 insert into q1
 SELECT Client.client_id,email,count(month)
-FROM Client  JOIN UniqueMonths ON Client.client_id=UniqueMonths.client_id
+FROM Client LEFT JOIN UniqueMonths ON Client.client_id=UniqueMonths.client_id
 GROUP BY Client.client_id;
